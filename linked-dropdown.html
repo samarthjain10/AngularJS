@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script>
+            var m = angular.module('chitkara', []);
+            m.controller('cse',function($scope) {
+                $scope.n=
+                [
+                    {
+                    uni:"chitkara",
+                    state:"rajpura",
+                    college:["abc","def","xyz","pqr"]
+                    },
+                    {
+                    uni:"cca",
+                    state:"chd",
+                    college:["ghi","jkl","rst"]
+                    },
+                    {
+                    uni:"pu",
+                    state:"pkl",
+                    college:["mno","pqr"]
+                    }
+                ]
+            });
+        </script>
+    </head>
+    <body ng-app="chitkara">
+        <div ng-controller="cse">
+            <select ng-model="w" ng-options="x.uni for x in n"></select>
+            <select ng-model="w" ng-options="x for x in w.college"></select>
+        </div>
+    </body>
+</html>

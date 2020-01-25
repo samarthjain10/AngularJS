@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script>
+            var m = angular.module('chitkara', []);
+            m.controller('cse',function($scope) {
+                $scope.n=
+                [
+                    {
+                    id:1001,    
+                    name:"saurav",
+                    age:18,
+                    hno:1212
+                    },
+                    {
+                    id:1002,    
+                    name:"samarth",
+                    age:19,
+                    hno:462
+                    },
+                    {
+                    id:1003,    
+                    name:"aman",
+                    age:17,
+                    hno:679
+                    }
+                ]
+                $scope.display=function(q)
+                {
+                 $scope.result=q;   
+                }
+            });
+        </script>
+    </head>
+    <body ng-app="chitkara" ng-controller="cse">
+        <div>
+            <table border="10px" >
+                <thead>
+                    <th>Id</th>
+                    <th></th>
+                </thead>
+                <tbody ng-repeat="x in n">
+                    <tr>
+                        <td>{{x.id}}</td>
+                        <td><button ng-click="display(x)">show</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            {{result}}
+        </div>
+    </body>
+</html>

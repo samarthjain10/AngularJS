@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script>
+            var m = angular.module('chitkara', []);
+            m.controller('cse', function($scope) {
+                $scope.display=function()
+                {
+                    return $scope.z = "Hi Samarth";
+                }
+            });
+        </script>
+    </head>
+    <body ng-app="chitkara" >
+        <div ng-controller="cse">
+            <button ng-click="display()">submit</button><br>
+            {{z}}
+        </div>
+    </body>
+</html>

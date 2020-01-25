@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script>
+            var m = angular.module('chitkara', []);
+            m.controller('cse',function($scope) {
+                $scope.logic=function()
+                {
+                    if($scope.a==null)
+                    {
+                        $scope.b = "Please enter number";
+                    }
+                    else
+                    {
+                        if($scope.a==0)
+                        {
+                            $scope.b = "Neither Even nor Odd";
+                        }
+                        else
+                        {
+                            if($scope.a%2==0)
+                                $scope.b = "Even"; 
+                            else
+                                $scope.b = "Odd";
+                        }
+                    }
+                }
+            });
+        </script>
+    </head>
+    <body ng-app="chitkara">
+        <div ng-controller="cse">
+            Number:<input type="number" ng-model="a"><br>
+            <button ng-click="logic()">Check</button><br>
+            Result:<p>{{b}}</p>
+        </div>
+    </body>
+</html>

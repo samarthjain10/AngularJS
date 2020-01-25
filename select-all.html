@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script>
+            var m = angular.module("uiet",[]);   		 
+			m.controller("Items",function($scope){
+                $scope.rec = 
+                    [
+                    {  
+				       "name":"Chips",
+					},
+					{  
+				       "name":"Cold Drink",
+					},
+					{  
+				       "name":"Milk",
+					},
+					{  
+				       "name":"Bread",
+					},
+                ];
+                $scope.value=0;
+                $scope.hi = function()
+                {
+                    for(var i=0 ; i<$scope.rec.length;i++)
+                    {
+                        $scope.rec[i].Selected = true;
+                        $scope.value=1;
+                    } 
+                } 
+                $scope.hey = function()
+                {
+                    for(var i=0 ; i<$scope.rec.length;i++)
+                    {
+                        $scope.rec[i].Selected = false;
+                        $scope.value=0;		   
+				    } 
+				} 		
+            });
+        </script>
+    </head>
+    <body ng-app="uiet">  	
+        <div ng-controller="Items">
+            <button ng-click="hi()" ng-if="value==0">select all</button>
+            <button ng-click="hey()" ng-if="value==1">unselect all</button>
+            <div ng-repeat = "x in rec">
+                <input type="checkbox"ng-model="x.Selected"> 
+                {{x.name}}    
+            </div>
+		</div>
+    </body>
+</html>

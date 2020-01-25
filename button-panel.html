@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script>
+            var m = angular.module('chitkara', []);
+            m.controller('cse', function($scope) {
+                $scope.value=0;
+                $scope.a = "";
+                $scope.b = "";
+                $scope.check=function()
+                {
+                    $scope.value = 1;
+                }
+                $scope.checkk=function()
+                {
+                    $scope.value = 0;
+                }
+            });
+        </script>
+    </head>
+    <body ng-app="chitkara">
+        <div ng-controller="cse">
+            <button ng-click="check()">show</button>
+            <div ng-if="value==1">
+                usernname:<input type="text" ng-model="a"><br>
+                password:<input type="password" ng-model="b"><br>
+                <button ng-click="checkk()">hide</button>
+            </div>
+        </div>
+    </body>
+</html>

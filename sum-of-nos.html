@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script>
+            var m = angular.module('chitkara', []);
+            m.controller('cse',function($scope) {
+                $scope.logic=function()
+                {
+                    $scope.c = $scope.a + $scope.b; 
+                }
+            });
+        </script>
+    </head>
+    <body ng-app="chitkara">
+        <div ng-controller="cse">
+            fno:<input type="number" ng-model="a"><br>
+            sno:<input type="number" ng-model="b"><br>
+            result:<input type="text" ng-model="c">
+            <button ng-click="logic()">sum</button>
+        </div>
+    </body>
+</html>

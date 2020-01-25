@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script>
+            var m = angular.module('chitkara', []);
+            m.controller('cse',function($scope) {
+                $scope.n=[
+                    {
+                    name:"saurav",
+                    age:18,
+                    hno:1212
+                    },
+                    {
+                    name:"samarth",
+                    age:19,
+                    hno:462
+                    },
+                    {
+                    name:"aman",
+                    age:17,
+                    hno:679
+                    }
+                    ]
+            });
+        </script>
+    </head>
+    <body ng-app="chitkara" ng-controller="cse">
+        <div>
+            {{n[1].name}}<br>
+            {{n[1].hno}}<br>
+            {{n[1].age}}<br>
+            {{n}}<br>
+        </div>
+        <div ng-repeat="x in n">
+            {{x.name}}<br>
+            {{x.age}}<br>
+        </div>
+    </body>
+</html>

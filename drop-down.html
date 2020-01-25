@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script>
+            var m = angular.module('chitkara', []);
+            m.controller('cse',function($scope) {
+                $scope.n=
+                [
+                    {
+                    id:1001,    
+                    name:"saurav",
+                    age:18,
+                    hno:1212
+                    },
+                    {
+                    id:1002,    
+                    name:"samarth",
+                    age:19,
+                    hno:462
+                    },
+                    {
+                    id:1003,    
+                    name:"aman",
+                    age:17,
+                    hno:679
+                    }
+                ]
+            });
+        </script>
+    </head>
+    <body ng-app="chitkara">
+        <div ng-controller="cse">
+            <select ng-model="w" ng-options="x.id for x in n">
+            </select>
+            {{w}}
+        </div>
+    </body>
+</html>

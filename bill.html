@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+     <head>
+	     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+         <script>
+            var m = angular.module("uiet",[]);   		 
+			m.controller("Items",function($scope){
+                $scope.rec = 
+                    [
+					{  
+				       "name":"chips 20/-",
+					   "cost":20
+					},
+					{  
+				       "name":"Cold Drink 35/-",
+					   "cost":35
+					},
+					{  
+				       "name":"milk 25/-",
+					   "cost":25
+					},
+					{  
+				       "name":"bread 30/-",
+					   "cost":30
+					},
+				];
+                $scope.bill = function()
+                {
+                    $scope.sum = 0;
+                    for(var i=0 ; i<$scope.rec.length;i++)
+                    {
+                        if($scope.rec[i].Selected == true)
+                        {
+                            $scope.sum = $scope.sum + $scope.rec[i].cost;
+                        }
+                    } 
+                }			
+            });
+         </script>
+    </head>
+    <body ng-app="uiet">  	
+	     <div ng-controller="Items">
+	         <div ng-repeat = "x in rec">
+		        <input type="checkbox"ng-model="x.Selected">
+                 {{x.name}}    
+             </div>
+			 <button ng-click="bill()">Bill</button>
+             Your Amount is {{sum}}
+        </div>
+    </body>
+</html>

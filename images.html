@@ -1,0 +1,101 @@
+<html>
+    <head> 
+        <script src="angular.min.js"></script>
+        <script>
+            var m=angular.module("college",[]);
+            m.controller("student",function($scope)
+            {
+                $scope.p=
+                [
+                    {
+                        "name":"Ronaldo",
+                        "position":"Stricker",
+                        "jersyno":7,
+                        "team":"Madrid",
+                        "url":"z/cr7.jpg"
+                    },
+                    {
+                        "name":"Messi",
+                        "position":"Right Winger",
+                        "jersyno":10,
+                        "team":"Barca",
+                        url:"z/lm10.jpeg"
+                    },
+                    {
+                        "name":"Salah",
+                        "position":"Right Winger",
+                        "jersyno":10,
+                        "team":"Madrid",
+                        url:"z/ms10.jpg"
+                    },
+                    {
+                        "name":"Neymar",
+                        "position":"Left Winger",
+                        "jersyno":10,
+                        "team":"Barca",
+                        url:"z/njr10.jpeg"
+                    },
+                    {
+                        "name":"Ramos",
+                        "position":"Center Back",
+                        "jersyno":4,
+                        "team":"Madrid",
+                        url:"z/sr4.jpeg"
+                    }
+                ];
+                $scope.logic = function()
+                {
+                    $scope.s=[];   
+                    if($scope.value!=null)
+                    {
+                        for(var i=0 ; i<$scope.p.length;i++)
+                        { 					   
+                            if($scope.p[i].team == $scope.value.team)
+                            {
+                                $scope.s.push($scope.p[i]);
+                            }				
+                        }
+                        console.log($scope.s);
+                    }					
+                }
+            });
+        </script>
+        <style>
+            img
+            {
+                border-radius: 100%
+            }
+        </style>
+    </head>
+    <body ng-app="college">
+        <div ng-controller="student">
+            Team:
+            <select ng-model="value" ng-options="t.team for t in p" ng-click="logic()"></select>
+            Name:
+            <select ng-model="rec" ng-options="t.name for t in s"></select>
+            <div ng-if = "rec.name!=null">
+                <table border="">
+                    <tr>
+                        <td colspan="2"><img src = {{rec.url}} width="200" height = "200"></td>
+                    </tr>
+                    <tr>
+                        <th>Team:</th>
+                        <td>{{rec.team}}</td>
+                    </tr>
+                    <tr>
+                        <th>Name:</th>
+                        <td>{{rec.name}}</td>
+                    </tr>
+                    <tr>
+                        <th>Position:</th>
+                        <td>{{rec.position}}</td>
+                    </tr>
+                    <tr>
+                        <th>Jersyno:</th>
+                        <td>{{rec.jersyno}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
